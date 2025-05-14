@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手机号登录/注册</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+    html, body {
+      background-color: #fff;
+      height: 100%;
+      overflow: hidden;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+    .input-group span.label {
+      width: 70px;
+      color: #555;
+      font-size: 16px;
+    }
+    .input-group input {
+      flex: 1;
+      border: none;
+      font-size: 16px;
+      color: #333;
+      background: transparent;
+      outline: none;
+      caret-color: #000;
+    }
+    .get-code-btn {
+      font-size: 12px;
+      margin-left: 10px;
+      color: #ff6699;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .login-btn {
+      margin-top: 40px;
+      width: 100%;
+      padding: 14px 0;
+      background-color: #fcb6ca;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    .alt-login {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+    .bottom-area {
+      font-size: 12px;
+      color: #999;
+      text-align: left;
+      margin-top: 30px;
+    }
+    .checkbox {
+      display: flex;
+      align-items: flex-start;
+    }
+    .checkbox input {
+      margin: 3px 6px 0 0;
+    }
+    .checkbox span {
+      line-height: 1.6;
+    }
+    .checkbox a {
+      color: #007aff;
+      text-decoration: none;
+    }
+    .help-text {
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div class="title">手机号登录/注册</div>
+
+      <div class="input-group">
+        <span class="label">+86</span>
+        <input type="text" id="phone" placeholder="请输入手机号码" required />
+      </div>
+
+      <div class="input-group">
+        <span class="label">验证码</span>
+        <input type="text" id="code" placeholder="请输入验证码" required />
+        <span class="get-code-btn">获取验证码</span>
+      </div>
+
+      <button class="login-btn" onclick="submitLogin()">登录</button>
+
+      <div class="alt-login">账号密码登录 ></div>
+    </div>
+
+    <div class="bottom-area">
+      <div class="checkbox">
+        <input type="checkbox" id="agree" />
+        <span>我已阅读并同意 <a href="#">用户协议</a>、<a href="#">隐私政策</a>，未注册绑定的手机号验证成功后将自动注册</span>
+      </div>
+      <div class="help-text">登录遇到问题</div>
+    </div>
+  </div>
+
+  <script>
+    function submitLogin() {
+      const phone = document.getElementById("phone").value.trim();
+      const code = document.getElementById("code").value.trim();
+      const agree = document.getElementById("agree").checked;
+
+      if (!agree) {
+        alert("请先勾选协议");
+        return;
+      }
+
+      if (!phone || !code) {
+        alert("请输入手机号和验证码");
+        return;
+      }
+
+      // 模拟成功后跳转
+      window.location.href = "main.html";
+    }
+  </script>
+</body>
+</html>
